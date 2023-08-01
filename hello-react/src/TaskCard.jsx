@@ -7,8 +7,8 @@ const TaskCard = (props) => {
     return (
         <div className='TaskItem'>
             <h2 className="text-xl font-bold">{props.title}</h2>
-            <p>Completed on: due date...</p>
-            <p>Assignee: name...</p>
+            <p>{props.due ? "Due on: " + props.due : "Completed on: " + props.completed}</p>
+            <p>Assignee: {props.assig}</p>
         </div>
     )
 }
