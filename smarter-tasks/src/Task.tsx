@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import "./TaskCard.css";
+import TaskCard from './TaskCard'
+
 interface TaskProp {
     title: string;
     dueDate: string;
@@ -10,12 +12,7 @@ interface TaskProp {
 class Task extends React.Component<TaskProp> {
     render() {
         return (
-            <div className="TaskItem shadow-md border border-slate-100">
-                <h2 className="text-base font-bold my-1">{this.props.title} ({this.props.dueDate})</h2>
-                <p className="text-sm text-slate-500">
-                    {this.props.description}
-                </p>
-            </div>
+            <TaskCard title={this.props.title} dueDate={this.props.dueDate} description={this.props.description} />
         );
     }
 }
