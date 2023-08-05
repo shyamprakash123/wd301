@@ -1,5 +1,7 @@
+import React from 'react';
 import TaskCard from './TaskCard'
 import './TaskCard.css'
+
 function App() {
   return (
     <div className='temp'>
@@ -8,15 +10,15 @@ function App() {
       <div className='main'>
         <div className='TaskContent'>
           <h1 className='text-2xl font-bold'>Pending</h1>
-          <TaskCard title="Build the website with static content" due="10th April" assig="Rohith S" />
-          <TaskCard title="Add a blog" due="22nd March" assig="Rohith M" />
+          <TaskCard title="Build the website with static content" dueDate="10th April" assigneeName="Rohith S" />
+          <TaskCard title="Add a blog" dueDate="22nd March" assigneeName="Rohith M" />
           <div className='btn'>+ New task</div>
         </div>
 
         <div className='TaskContent'>
           <h1 className='text-2xl font-bold'>Done</h1>
-          <TaskCard title="Design the mockup" completed="10th April" assig="Rohith M" />
-          <TaskCard title="Get the approval from pincipal" completed="20th April" assig="Ajay S" />
+          <TaskCard title="Design the mockup" completedAtDate ="10th April" assigneeName="Rohith M" />
+          <TaskCard title="Get the approval from pincipal" completedAtDate ="20th April" assigneeName="Ajay S" />
         </div>
       </div>
     </div>
