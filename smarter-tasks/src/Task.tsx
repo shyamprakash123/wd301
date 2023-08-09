@@ -1,20 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from "react";
 import "./TaskCard.css";
-import TaskCard from './TaskCard'
+import TaskCard from "./TaskCard";
 
 interface TaskProp {
-    title: string;
-    dueDate: string;
-    description: string;
+  title: string;
+  dueDate: string;
+  description: string;
+  keyItem: number;
+  removeTask: (id: number) => void;
 }
 
-class Task extends React.Component<TaskProp> {
-    render() {
-        return (
-            <TaskCard title={this.props.title} dueDate={this.props.dueDate} description={this.props.description} />
-        );
-    }
-}
+const Task = (props: TaskProp) => {
+  return (
+    <TaskCard
+      title={props.title}
+      dueDate={props.dueDate}
+      description={props.description}
+      removeTask={props.removeTask}
+      keyItem={props.keyItem}
+    />
+  );
+};
 
 export default Task;
