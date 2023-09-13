@@ -3,7 +3,7 @@ import { TaskItem } from "./types";
 
 interface TaskProps {
   item: TaskItem;
-  removeTask: (task: TaskItem) => void;
+  removeTask: (task: number) => void;
 }
 const Task = (props: TaskProps) => {
   const { item, removeTask } = props;
@@ -22,7 +22,7 @@ const Task = (props: TaskProps) => {
 
         <button
           className="deleteTaskButton cursor-pointer flex items-center justify-center h-4 w-4 rounded-full my-5 mr-5"
-          onClick={() => removeTask(item)}
+          onClick={() => removeTask(parseInt(item.id!))}
         >
           X
         </button>

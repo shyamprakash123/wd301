@@ -4,11 +4,11 @@ import { TaskItem } from "./types";
 interface TaskFormProps {
   addTask: (task: TaskItem) => void;
 }
-interface TaskFormState {
-  title: string;
-  dueDate: string;
-  description: string;
-}
+// interface TaskFormState {
+//   title: string;
+//   dueDate: string;
+//   description: string;
+// }
 
 const TaskForm = (props: TaskFormProps) => {
   const [formState, setFormState] = React.useState<TaskItem>({
