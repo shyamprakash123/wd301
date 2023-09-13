@@ -7,10 +7,10 @@ interface Props {
 }
 
 const TaskList = (props: Props) => {
-  const list = props.tasks.map((task) => (
+  const list = props.tasks.map((task, idx) => (
     <Task
       item={{
-        id: task.id,
+        id: idx.toString(),
         title: task.title,
         dueDate: task.dueDate,
         description: task.description,

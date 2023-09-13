@@ -2,6 +2,7 @@ import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useEffect } from "react";
 
 interface TaskAppState {
   tasks: TaskItem[];
@@ -12,18 +13,18 @@ const TaskApp = () => {
     "tasks",
     {
       tasks: [],
-    },
+    }
   );
 
-  // useEffect(() => {
-  //     const id = setTimeout(() => {
-  //         console.log(`Saved ${taskAppState.tasks.length} items to backend...`);
-  //     }, 5000);
-  //     return () => {
-  //         console.log("clear or cancel any existing network call");
-  //         clearTimeout(id);
-  //     };
-  // }, [taskAppState.tasks]);
+  useEffect(() => {
+    const id = setTimeout(() => {
+      console.log(`Saved ${taskAppState.tasks.length} items to backend...`);
+    }, 5000);
+    return () => {
+      console.log("clear or cancel any existing network call");
+      clearTimeout(id);
+    };
+  }, [taskAppState.tasks]);
 
   const addTask = (task: TaskItem) => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
