@@ -17,7 +17,7 @@ const TaskDetailsPage: React.FC = () => {
     tasks: [],
   });
 
-  const task = taskAppState.tasks.find((task, idx) => idx.toString() === id);
+  const task = taskAppState.tasks.find((_task, idx) => idx.toString() === id);
 
   return (
     <div className="bg-white shadow-md rounded-md p-4 m-8">
