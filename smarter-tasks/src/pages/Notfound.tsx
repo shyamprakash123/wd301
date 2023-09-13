@@ -8,7 +8,7 @@ export default function Notfound() {
       <button
         id="backToHomeButton"
         onClick={() => {
-          navigate("/");
+          navigate("/home");
         }}
       >
         Back
