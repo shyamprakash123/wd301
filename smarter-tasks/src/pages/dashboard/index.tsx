@@ -12,6 +12,12 @@ const Dashboard: React.FC = () => {
       <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
         Dashboard
       </h1>
+      <h1 className="text-xl font-bold text-center text-gray-800 mb-8">
+        {`User Name: ${userData.name}`}
+      </h1>
+      <h1 className="text-xl font-bold text-center text-gray-800 mb-8">
+        {`Email: ${userData.email}`}
+      </h1>
       <button
         id="logout-link"
         onClick={() => {
