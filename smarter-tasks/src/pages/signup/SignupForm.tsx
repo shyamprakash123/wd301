@@ -49,8 +49,8 @@ const SignupForm: React.FC = () => {
         </label>
         <input
           type="text"
-          name="orginisation"
-          id="orginisation"
+          name="organisationName"
+          id="organisationName"
           value={organisationName}
           onChange={(e) => setOrganisationName(e.target.value)}
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
@@ -62,8 +62,8 @@ const SignupForm: React.FC = () => {
         </label>
         <input
           type="text"
-          name="usernmae"
-          id="username"
+          name="userName"
+          id="userName"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
@@ -73,8 +73,8 @@ const SignupForm: React.FC = () => {
         <label className="block text-gray-700 font-semibold mb-2">Email:</label>
         <input
           type="email"
-          name="email"
-          id="email"
+          name="userEmail"
+          id="userEmail"
           value={userEmail}
           onChange={(e) => setUserEmail(e.target.value)}
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
@@ -86,8 +86,8 @@ const SignupForm: React.FC = () => {
         </label>
         <input
           type="password"
-          name="password"
-          id="password"
+          name="userPassword"
+          id="userPassword"
           value={userPassword}
           onChange={(e) => setUserPassword(e.target.value)}
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
