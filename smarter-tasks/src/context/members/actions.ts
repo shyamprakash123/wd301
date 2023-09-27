@@ -72,6 +72,7 @@ export const deleteMembers = async (dispatch: any, id: number) => {
         Authorization: `Bearer ${token}`,
       },
     });
+    console.log(response);
     dispatch({ type: "DELETE_MEMBERS_SUCCESS", payload: id });
   } catch (error) {
     console.log("Error deleting members:", error);
