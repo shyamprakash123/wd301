@@ -55,6 +55,7 @@ const SignupForm: React.FC = () => {
         </label>
         <input
           type="text"
+          id="organisationName"
           placeholder="Enter organisation..."
           autoFocus
           {...register("organisationName", { required: true })}
@@ -67,6 +68,7 @@ const SignupForm: React.FC = () => {
         </label>
         <input
           type="text"
+          id="userName"
           placeholder="Enter username..."
           autoFocus
           {...register("userName", { required: true })}
@@ -77,6 +79,7 @@ const SignupForm: React.FC = () => {
         <label className="block text-gray-700 font-semibold mb-2">Email:</label>
         <input
           type="email"
+          id="userEmail"
           placeholder="Enter email..."
           autoFocus
           {...register("userEmail", { required: true })}
@@ -89,6 +92,7 @@ const SignupForm: React.FC = () => {
         </label>
         <input
           type="password"
+          id="userPassword"
           placeholder="Enter password..."
           autoFocus
           {...register("userPassword", { required: true })}
