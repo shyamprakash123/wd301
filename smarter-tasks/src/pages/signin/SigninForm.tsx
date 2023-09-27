@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 // First we will import the API_ENDPOINT constant from the `config` folder
 import { API_ENDPOINT } from "../../config/constants";
 import { useNavigate } from "react-router-dom";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type Inputs = {
+  email: string;
+  password: string;
+};
 
 const SigninForm: React.FC = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  // Then we will define the handle submit function
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const { register, handleSubmit } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const { email, password } = data;
 
     try {
       const response = await fetch(`${API_ENDPOINT}/users/sign_in`, {
@@ -31,7 +36,7 @@ const SigninForm: React.FC = () => {
       // After successful signin, first we will save the token in localStorage
       localStorage.setItem("authToken", data.token);
       localStorage.setItem("userData", JSON.stringify(data.user));
-      navigate("/dashboard");
+      navigate("/account");
     } catch (error) {
       console.error("Sign-in failed:", error);
     }
@@ -39,15 +44,14 @@ const SigninForm: React.FC = () => {
 
   // Then we will use the handleSubmit function with our form
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label className="block text-gray-700 font-semibold mb-2">Email:</label>
         <input
           type="email"
-          name="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter email..."
+          autoFocus
+          {...register("email", { required: true })}
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
         />
       </div>
@@ -57,10 +61,9 @@ const SigninForm: React.FC = () => {
         </label>
         <input
           type="password"
-          name="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter password..."
+          autoFocus
+          {...register("password", { required: true })}
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
         />
       </div>
