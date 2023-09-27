@@ -49,6 +49,7 @@ const SigninForm: React.FC = () => {
         <label className="block text-gray-700 font-semibold mb-2">Email:</label>
         <input
           type="email"
+          id="email"
           placeholder="Enter email..."
           autoFocus
           {...register("email", { required: true })}
@@ -61,6 +62,7 @@ const SigninForm: React.FC = () => {
         </label>
         <input
           type="password"
+          id="password"
           placeholder="Enter password..."
           autoFocus
           {...register("password", { required: true })}
