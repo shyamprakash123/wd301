@@ -8,7 +8,7 @@ import { reorderTasks, updateTask } from "../../context/task/actions";
 import { useParams } from "react-router-dom";
 
 const Container = (props: React.PropsWithChildren) => {
-  return <div className="flex flex-row">{props.children}</div>;
+  return <div className="flex">{props.children}</div>;
 };
 
 const DragDropList = (props: { data: ProjectData }) => {
