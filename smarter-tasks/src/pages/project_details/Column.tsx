@@ -37,7 +37,7 @@ interface Props {
 const Column: React.FC<Props> = (props) => {
   return (
     <Container>
-      <div id={props.column.id}>
+      <div id={props.column.id} className={props.column.id}>
         <Title>{props.column.title}</Title>
         <Droppable droppableId={props.column.id}>
           {(provided) => (
