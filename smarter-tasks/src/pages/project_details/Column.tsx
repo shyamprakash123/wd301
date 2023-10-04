@@ -37,17 +37,19 @@ interface Props {
 const Column: React.FC<Props> = (props) => {
   return (
     <Container>
-      <Title>{props.column.title}</Title>
-      <Droppable droppableId={props.column.id}>
-        {(provided) => (
-          <TaskList ref={provided.innerRef} {...provided.droppableProps}>
-            {props.tasks.map((task, idx) => (
-              <Task key={task.id} task={task} index={idx} />
-            ))}
-            {provided.placeholder}
-          </TaskList>
-        )}
-      </Droppable>
+      <div id={props.column.id}>
+        <Title>{props.column.title}</Title>
+        <Droppable droppableId={props.column.id}>
+          {(provided) => (
+            <TaskList ref={provided.innerRef} {...provided.droppableProps}>
+              {props.tasks.map((task, idx) => (
+                <Task key={task.id} task={task} index={idx} />
+              ))}
+              {provided.placeholder}
+            </TaskList>
+          )}
+        </Droppable>
+      </div>
     </Container>
   );
 };
