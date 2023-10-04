@@ -256,7 +256,12 @@ const TaskDetails = () => {
                       </button>
                       {CommentsState?.projectData.map((comment) => {
                         return (
-                          <div className="comment">{comment.description}</div>
+                          <div className="comment">
+                            {comment.description}{" "}
+                            {formatDateForPicker(comment.createdAt)}{" "}
+                            {`    
+                            ${comment.User.name}`}
+                          </div>
                         );
                       })}
                       <button

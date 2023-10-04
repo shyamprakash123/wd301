@@ -50,6 +50,12 @@ export type ProjectData = {
   description: string;
   task_id: number;
   owner: number;
+  createdAt: string;
+  User: {
+    name: string;
+    email: string;
+    id: number;
+  };
 }[];
 
 export interface TaskListState {
