@@ -16,16 +16,16 @@ import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { useMembersState } from "../../context/members/context";
-import { API_ENDPOINT } from "../../config/constants";
+// import { API_ENDPOINT } from "../../config/constants";
 import { addComment, refreshTasks } from "../../context/comment/actions";
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
   selectedPerson: string;
 };
 
-type comment = {
-  description: string;
-};
+// type comment = {
+//   description: string;
+// };
 
 // Helper function to format the date to YYYY-MM-DD format
 const formatDateForPicker = (isoDate: string) => {
@@ -41,31 +41,31 @@ const formatDateForPicker = (isoDate: string) => {
 const TaskDetails = () => {
   let [isOpen, setIsOpen] = useState(true);
 
-  let [comments, setComments] = useState([
-    { id: 1, description: "No comments" },
-  ]);
+  // let [comments, setComments] = useState([
+  //   { id: 1, description: "No comments" },
+  // ]);
 
   let [commentBox, setComment] = useState("");
 
   let { projectID, taskID } = useParams();
   let navigate = useNavigate();
 
-  const getComments = async (setComments: (comm: any) => void) => {
-    const token = localStorage.getItem("authToken") ?? "";
-    const response = await fetch(
-      `${API_ENDPOINT}/projects/${projectID}/tasks/${taskID}/comments`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    const data = await response.json();
-    if (data.length > 0) {
-      setComments(data);
-    }
-  };
+  // const getComments = async (setComments: (comm: any) => void) => {
+  //   const token = localStorage.getItem("authToken") ?? "";
+  //   const response = await fetch(
+  //     `${API_ENDPOINT}/projects/${projectID}/tasks/${taskID}/comments`,
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     }
+  //   );
+  //   const data = await response.json();
+  //   if (data.length > 0) {
+  //     setComments(data);
+  //   }
+  // };
 
   // Extract project and task details.
   const projectState = useProjectsState();
@@ -81,6 +81,7 @@ const TaskDetails = () => {
 
   useEffect(() => {
     refreshTasks(commentDispatch, projectID ?? "", taskID ?? "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const selectedTask = taskListState.projectData.tasks[taskID ?? ""];
@@ -88,11 +89,7 @@ const TaskDetails = () => {
   const [selectedPerson, setSelectedPerson] = useState(
     selectedTask.assignedUserName ?? ""
   );
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<TaskFormUpdatePayload>({
+  const { register, handleSubmit } = useForm<TaskFormUpdatePayload>({
     defaultValues: {
       title: selectedTask.title,
       description: selectedTask.description,

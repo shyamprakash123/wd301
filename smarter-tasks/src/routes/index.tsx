@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { Outlet } from "react-router-dom";
 import TaskDetailsContainer from "../pages/tasks/TaskDetailsContainer";
 
 import AccountLayout from "../layouts/account";
