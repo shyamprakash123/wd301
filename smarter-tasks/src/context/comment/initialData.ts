@@ -6,6 +6,12 @@ const initialData: ProjectData = [
     description: "No comments shyam",
     task_id: 0,
     owner: 0,
+    createdAt: "",
+    User: {
+      name: "",
+      email: "",
+      id: 0,
+    },
   },
 ];
 
